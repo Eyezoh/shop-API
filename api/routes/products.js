@@ -118,7 +118,6 @@ router.delete('/:productId',(req,res,next)=>{
             error:err
         })
     })
-//0702856276 - marvin
 
     res.status(200).json({
         message:'delete product'
