@@ -1,15 +1,19 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan')
-
+const mongoose = require('mongoose')
 
 const productRoutes = require('./api/routes/products')
 const orderRoutes = require('./api/routes/orders')
 
+mongoose.connect('mongodb+srv://isaac2019:isaac2019@cluster0.hvn5r.mongodb.net/test?retryWrites=true&w=majority', 
+{ useNewUrlParser: true, 
+    useUnifiedTopology: true  },
+)
 app.use((req,res,next)=>{
     res.header("Access-Control-Allow-Origin","*");
     res.header(
-        "Access-Control-Allow-Headers",
+        "Access-Control-Allow-Headers", 
         "Origin, X-Requested-With,Content-Type,Accept,Authorization")
 
     if(req.method === 'OPTIONS'){
